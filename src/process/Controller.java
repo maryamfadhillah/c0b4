@@ -5,8 +5,6 @@
  */
 package process;
 
-import static java.lang.Integer.parseInt;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
@@ -14,6 +12,7 @@ import java.util.Scanner;
 import model.Barang;
 import model.Keranjang;
 import model.Transaksi;
+import view.*;
 
 /**
  *
@@ -24,7 +23,6 @@ public class Controller {
     Scanner sc = new Scanner(System.in);
     StringBuffer sb = new StringBuffer();
     LocalDateTime now = LocalDateTime.now();
-    
 
     public void inputBarang() {
         System.out.println("Masukkan Nama Barang");
@@ -52,14 +50,14 @@ public class Controller {
     public void deleteBarang() {
         System.out.println("Masukkan ID Barang");
         Integer idBarang = sc.nextInt();
-        Barang.delete(idBarang);
+        new Barang().delete(idBarang);
     }
 
     public void beliBarang() {
         String beliLagi = "y";
-        Integer totalTransaksi=0;
+        Integer totalTransaksi = 0;
         String idKeranjang = DateTimeFormatter.ofPattern("yyMdHHmms").format(now);
-        while (beliLagi.equals("y")) {
+        while (beliLagi.toLowerCase().equals("y")) {
             System.out.println("Masukkan ID Barang");
             Integer idBarang = sc.nextInt();
             Map<String, String> barang = Barang.select(idBarang);
@@ -70,13 +68,21 @@ public class Controller {
             Integer qtyBarang = sc.nextInt();
             Integer total = hrgBarang * qtyBarang;
             Keranjang.insert(Integer.valueOf(idKeranjang), idBarang, qtyBarang, total);
-            totalTransaksi+=total;
+            totalTransaksi += total;
             System.out.println("Beli lagi ?");
             beliLagi = sc.next();
         }
-        Transaksi.insert(Integer.valueOf(idKeranjang), "Raqael", totalTransaksi);
-        Keranjang.select(Integer.valueOf(idKeranjang));
 
+        Keranjang.select(Integer.valueOf(idKeranjang));
+        System.out.println("Uang yang di bayarkan : ");
+        Integer pembayaran = sc.nextInt();
+        Integer kembalian = pembayaran - totalTransaksi;
+        System.out.println("Kembalian : " + kembalian);
+        Transaksi.insert(Integer.valueOf(idKeranjang), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").format(now), totalTransaksi, pembayaran, kembalian);
+        
+        if (!beliLagi.toLowerCase().equals("y")) {
+            new MainClass().jalankan();
+        }
     }
 
 //    public static void main(String[] args) {

@@ -3,19 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package supermarket;
+package config;
 
 /**
  *
  * @author raqaelf
  */
-public class SuperMarket {
+public interface Database {
+    public String dbHost = "localhost";
+    public String dbName = "supermarket";
+    public String dbUser = "root";
+    public String dbPass = "aminajah";
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
-    
 }

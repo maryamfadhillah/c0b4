@@ -6,6 +6,10 @@
             <file>file:/home/raqaelf/NetBeansProjects/SuperMarket/src/model/Transaksi.java</file>
             <file>file:/home/raqaelf/NetBeansProjects/SuperMarket/src/process/Controller.java</file>
             <file>file:/home/raqaelf/NetBeansProjects/SuperMarket/src/model/Keranjang.java</file>
+            <file>file:/home/raqaelf/NetBeansProjects/SuperMarket/src/model/MySQLConnection.java</file>
+            <file>file:/home/raqaelf/NetBeansProjects/SuperMarket/src/model/AbsModel.java</file>
+            <file>file:/home/raqaelf/NetBeansProjects/SuperMarket/src/view/Tampilan.java</file>
+            <file>file:/home/raqaelf/NetBeansProjects/SuperMarket/src/config/Database.java</file>
             <file>file:/home/raqaelf/NetBeansProjects/SuperMarket/src/model/Barang.java</file>
             <file>file:/home/raqaelf/NetBeansProjects/SuperMarket/src/view/MainClass.java</file>
         </group>

@@ -17,7 +17,7 @@ import java.util.Map;
  *
  * @author raqaelf
  */
-public class Barang {
+public class Barang extends AbsModel {
 
     public int id_barang, harga_barang, stock_barang;
     public String nama_barang;
@@ -65,7 +65,8 @@ public class Barang {
     }
 // delete data barang berdasarkan id_barang
 
-    public static void delete(Integer id_barang) {
+    @Override
+    public void delete(Integer id_barang) {
 
         // query sql untuk hapus data buku berdasarkan id_barang
         String sql = "DELETE FROM db_barang WHERE id_barang=?";

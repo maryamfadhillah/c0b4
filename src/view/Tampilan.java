@@ -17,7 +17,6 @@ public class Tampilan {
 
     static Scanner sc = new Scanner(System.in);
     static Controller ctr = new Controller();
-    
 
     public void menu_Utama() {
         System.out.println("================================");
@@ -25,6 +24,7 @@ public class Tampilan {
         System.out.println("================================");
         System.out.println("         1. Menu Barang");
         System.out.println("         2. Pembelian");
+        System.out.println("         3. Exit");
         System.out.println("================================");
     }
 
@@ -36,6 +36,7 @@ public class Tampilan {
         System.out.println("         2. Tambah Barang");
         System.out.println("         3. Edit Barang");
         System.out.println("         4. Hapus Barang");
+        System.out.println("         5. Kembali");
         System.out.println("================================");
         int pilihan;
         pilihan = sc.nextInt();
@@ -58,6 +59,9 @@ public class Tampilan {
                 brg.select();
                 ctr.deleteBarang();
                 Tampilan.menu_barang();
+                break;
+            case 5:
+                new MainClass().jalankan();
                 break;
             default:
                 break;

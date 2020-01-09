@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 public class MainClass {
 
-    public static void main(String[] args) {
+    public void jalankan(){
         Tampilan view = new Tampilan();
         view.menu_Utama();
         Scanner cutama = new Scanner(System.in);
@@ -23,5 +23,8 @@ public class MainClass {
         } else if(ccutama == 2){
             view.pembelian();
         }
+    }
+    public static void main(String[] args) {
+        new MainClass().jalankan();
     }
 }
